@@ -13,6 +13,7 @@ jobs:
         run: |
           rm -f setup.sh
           unzip -o nexusvr-etapa1.zip
+          sed -i 's/Material3.DarkNoActionBar/Material3.Dark.NoActionBar/' app/src/main/res/values/themes.xml
 
       - uses: actions/setup-java@v4
         with:
