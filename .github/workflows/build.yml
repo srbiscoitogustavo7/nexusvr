@@ -13,6 +13,9 @@ jobs:
         run: |
           if [ -f setup.sh ]; then bash setup.sh; fi
 
+      - name: Mostrar build.gradle.kts
+        run: sed -n '6,16p' app/build.gradle.kts | cat -A
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
