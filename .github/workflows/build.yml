@@ -12,8 +12,9 @@ jobs:
       - name: Extrair projeto
         run: |
           rm -f setup.sh
-          unzip -o nexusvr-etapa1.zip
-          sed -i 's/Material3.DarkNoActionBar/Material3.Dark.NoActionBar/' app/src/main/res/values/themes.xml
+          ZIP=$(ls nexusvr-etapa*.zip | sort -V | tail -1)
+          echo "Usando $ZIP"
+          unzip -o "$ZIP"
 
       - uses: actions/setup-java@v4
         with:
@@ -31,3 +32,4 @@ jobs:
         with:
           name: nexusvr-debug-apk
           path: app/build/outputs/apk/debug/*.apk
+          
