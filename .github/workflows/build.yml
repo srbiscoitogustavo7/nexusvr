@@ -9,12 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Gerar arquivos do projeto
+      - name: Extrair projeto
         run: |
-          if [ -f setup.sh ]; then bash setup.sh; fi
-
-      - name: Mostrar build.gradle.kts
-        run: sed -n '6,16p' app/build.gradle.kts | cat -A
+          rm -f setup.sh
+          unzip -o nexusvr-etapa1.zip
 
       - uses: actions/setup-java@v4
         with:
